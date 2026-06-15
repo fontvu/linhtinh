@@ -123,7 +123,7 @@ const PHASES = [
         id: "p0_emp_current", priority: "critical", deadline: "2026-07-15",
         title: "Request employment certificate from current employer",
         details: {
-          what: "SISGP (Sweden Institute Scholarship) requires proof of at least 3,000 total working hours across up to 3 employers. The employment certificate from your current employer (Razer) must state your job title, start date, and contracted weekly hours. This is a core eligibility document.",
+          what: "SISGP (Sweden Institute Scholarship) requires proof of at least 3,000 total working hours across up to 3 employers. The employment certificate from your current employer must state your job title, start date, and contracted weekly hours. This is a core eligibility document.",
           steps: [
             "Draft a formal request email to your HR department or direct manager specifying what the certificate must contain: full name, job title, company name, employment start date, contracted weekly working hours, and a company stamp and authorized signature.",
             "Mention that this is for an international scholarship application and ask for the document on company letterhead.",
@@ -150,10 +150,10 @@ const PHASES = [
         id: "p0_emp_past", priority: "high", deadline: "2026-07-31",
         title: "Request employment certificate(s) from past employers",
         details: {
-          what: "SISGP counts work experience from up to 3 employers. Your past employers (Prudential, AIA, CIMB, PwC or others) need to provide certificates in the same format as your current employer. Gathering these now avoids last-minute chasing in February 2027.",
+          what: "SISGP counts work experience from up to 3 employers. Your past employers need to provide certificates in the same format as your current employer. Gathering these now avoids last-minute chasing in February 2027.",
           steps: [
             "List all employers where you had formal employment (not freelance/contract work) and calculate the hours you might need from each to reach 3,000 total.",
-            "Contact the HR department of each past employer by email. Use the same template as for Razer, adapted with correct dates.",
+            "Contact the HR department of each past employer by email. Use the same template as for your current employer, adapted with correct dates.",
             "If a company has dissolved or HR is unresponsive, a signed letter from your direct manager (at their new employer) may be accepted — check SI's latest guidance.",
             "For employers outside Vietnam (e.g., if you worked abroad), the certificate still needs to be in English or with a certified translation.",
             "Collect and file all certificates together in a dedicated folder (physical and digital)."
@@ -198,7 +198,7 @@ const PHASES = [
           fees: "No fee. PDF merging can be done free at ilovepdf.com or smallpdf.com.",
           faq: [
             { q: "Do I count hours from before graduation?", a: "No. SISGP only counts post-bachelor-graduation work experience. Any employment while still a student does not count toward the 3,000-hour requirement." },
-            { q: "What if I am slightly under 3,000 hours at deadline?", a: "Continue working and update the calculation. Hours at the time of application (February 2027) are what count. With your current Razer role, you will accumulate additional hours through February 2027 — factor this in." }
+            { q: "What if I am slightly under 3,000 hours at deadline?", a: "Continue working and update the calculation. Hours at the time of application (February 2027) are what count. Estimate additional hours you will gain before the deadline." }
           ]
         }
       },
@@ -211,7 +211,7 @@ const PHASES = [
             "Brainstorm all leadership activities: team lead roles, projects you initiated, committees, volunteer work, professional associations, academic clubs.",
             "For each activity, identify: role title, organization, dates, number of people impacted or managed, and a concrete measurable outcome.",
             "Obtain documentation for each: appointment letter, committee minutes, org chart showing your role, news coverage, photos with captions, award certificates.",
-            "If current leadership evidence is thin, identify one opportunity to take on now (e.g., lead an internal security initiative at Razer, mentor a junior colleague formally, join a professional association board).",
+            "If current leadership evidence is thin, identify one opportunity to take on now (e.g., lead an internal security initiative, mentor a junior colleague formally, join a professional association board).",
             "Draft a one-line 'leadership impact statement' for each activity: [Role] at [Organization], [Date range], led [X people/initiative], resulting in [measurable outcome].",
             "Compile all documentation into a PDF package for SISGP (needed in Phase 3)."
           ],
@@ -260,7 +260,7 @@ const PHASES = [
           ],
           fees: "Translation: ~200,000–500,000 VND per page. Notarization: ~20,000–50,000 VND per copy. Allow 300,000–1,000,000 VND total.",
           faq: [
-            { q: "Does 1 Vietnamese credit (tin chi) equal 1 ECTS?", a: "Approximately 1 Vietnamese tin chi ≈ 1.5 ECTS. A 120-credit Vietnamese bachelor is roughly equivalent to 180 ECTS. Mannheim will do their own conversion, but having this ratio in mind helps you assess eligibility." },
+            { q: "Does 1 Vietnamese credit (tin chi) equal 1 ECTS?", a: "No. Vietnamese tin chi are not identical to ECTS credits. Use any conversion only as a rough estimate and confirm with each target university, because they perform their own evaluations.", },
             { q: "How long does the notarization process take?", a: "Same-day to 3 business days at most district-level notary offices in major cities. For urgency, use a private notary public (van phong cong chung tu)." }
           ]
         }
@@ -288,7 +288,7 @@ const PHASES = [
           ],
           fees: "Same as transcript: translation ~200,000–500,000 VND/page, notarization ~50,000 VND/copy.",
           faq: [
-            { q: "Do I need to send the original degree to Germany?", a: "German universities typically require certified copies ('beglaubigte Kopien') — you do not send originals. However, Mannheim and Cologne may verify via uni-assist, which handles document authentication. Follow program-specific instructions." }
+            { q: "Do I need to send the original degree to Germany?", a: "German universities typically require certified copies ('beglaubigte Kopien') instead of originals. If your program uses uni-assist, the agency will guide authentication. Always follow the current instructions for your target university.", }
           ]
         }
       },
@@ -348,9 +348,9 @@ const PHASES = [
         id: "p1_mannheim_audit", priority: "high", deadline: "2026-09-30",
         title: "Map transcript against Mannheim ECTS thresholds",
         details: {
-          what: "Mannheim MSc Business Informatics has specific prerequisite ECTS requirements in Informatics, Business, Mathematics, and Programming. You need to audit your transcript against these thresholds to assess eligibility and identify gaps before applying.",
+          what: "Mannheim MSc Business Informatics and similar programs have specific prerequisite requirements in Informatics, Business, Mathematics, and Programming. Audit your transcript against the current entry requirements to assess eligibility and identify gaps before applying.",
           steps: [
-            "Obtain the Mannheim prerequisites list from the program website (wiwi.uni-mannheim.de). Current known thresholds: Informatics ≥30 ECTS, Business Administration ≥30 ECTS, Mathematics/Statistics ≥18 ECTS, Programming ≥8 ECTS, plus a bachelor thesis.",
+            "Obtain the current prerequisite list from the program website. Exact thresholds change, so confirm the latest requirements directly with the admissions office.",
             "Convert your Vietnamese tin chi to ECTS: multiply each course credit by 1.5 to get approximate ECTS.",
             "Map each course from your transcript to one of the four categories. Use course names and descriptions — when in doubt, map to the most conservative category.",
             "Sum ECTS per category and compare to thresholds.",
@@ -459,9 +459,9 @@ const PHASES = [
         details: {
           what: "SI publishes the list of SISGP-eligible programs annually in mid-November. Only programs on this list qualify for the scholarship. Your ranked list on universityadmissions.se must contain at least one eligible program, or you cannot apply for SISGP.",
           steps: [
-            "Set a calendar reminder for November 15, 2026 to check the SI website.",
-            "Navigate to si.se, Scholarships section, SISGP, then 'List of eligible programs 2027/28'.",
-            "Verify that your target programs are on the list. Known SISGP-eligible programs from 2026/27 include: ORU-M2600 (Orebro, Information Systems), SU-43003/43001 (Stockholm, Computer/Systems Science), HJ-MU114 (Jonkoping, Informatics).",
+            "Set a calendar reminder for November 2026 to check the SI website.",
+            "Navigate to si.se, Scholarships section, SISGP, then 'List of eligible programmes'.",
+            "Verify that your target programs are on the current list. Program codes change year to year, so do not rely on previous-cycle examples.",
             "If a program you planned to apply for is NOT on the list, immediately adjust your universityadmissions.se ranking to include an eligible alternative.",
             "Note the program codes exactly — you will need them when submitting your SISGP application in February."
           ],
@@ -497,7 +497,7 @@ const PHASES = [
           docs: [
             "IELTS result (TRF number or PDF)",
             "SISGP eligible programs list (Nov 2026)",
-            "Your APS certificate (required for Swedish application as Vietnamese applicant)",
+            "Your APS certificate if required by the Swedish program or scholarship application",
             "Transcript and degree (for upload)"
           ],
           fees: "SEK 900 (~€80) application fee paid via universityadmissions.se. One-time payment regardless of number of programs (up to 4).",
@@ -520,7 +520,7 @@ const PHASES = [
           what: "CYBERSURE is an Erasmus Mundus Joint Master (EMJM) in cybersecurity run by the Universities of Lorraine, UCLouvain, and KTH. The motivation letter (~600–800 words) must explain your cybersecurity background, research interests, and why this specific consortium fits your goals. A strong letter is the primary selection criterion.",
           steps: [
             "Research each partner university and their specific cybersecurity research areas (crypto, network security, formal methods). Mention 1–2 faculty or research groups by name.",
-            "Structure: (1) Hook — a concrete security problem or incident that drives your interest. (2) Academic background — your relevant coursework and projects. (3) Professional experience — your security engineering work at Razer and previous roles. (4) Why CYBERSURE — specific curriculum elements, the multi-campus structure, research angle. (5) Career goal — how CYBERSURE serves your professional development.",
+            "Structure: (1) Hook — a concrete security problem or incident that drives your interest. (2) Academic background — your relevant coursework and projects. (3) Professional experience — your cybersecurity-related work and previous roles. (4) Why CYBERSURE — specific curriculum elements, the multi-campus structure, research angle. (5) Career goal — how CYBERSURE serves your professional development.",
             "Do not write a generic 'I have always been interested in cybersecurity' opening. Be specific.",
             "Address the 3 key programs: Lorraine (cryptography/formal security), UCLouvain (systems security), KTH (network security). Show you understand the progression.",
             "Have a native English speaker review for clarity and tone before submitting.",
@@ -569,7 +569,7 @@ const PHASES = [
           ],
           fees: "No application fee.",
           faq: [
-            { q: "How competitive is CYBERSURE?", a: "Very competitive globally. Strong candidates have: a bachelor degree in CS/IS/engineering, demonstrable cybersecurity experience, research interest, IELTS 7.0+. Your professional security background at Razer and AIA is a significant differentiator." }
+            { q: "How competitive is CYBERSURE?", a: "Very competitive globally. Strong candidates have a bachelor degree in CS/IS/engineering, demonstrable cybersecurity experience, research interest, and a strong motivation letter. A technical security background and relevant projects help distinguish your application." }
           ]
         }
       },
@@ -577,13 +577,13 @@ const PHASES = [
         id: "p2_aalto_letter", priority: "normal", deadline: "2026-12-20",
         title: "[Optional] Write Aalto motivation letter",
         details: {
-          what: "Aalto University (Helsinki) offers strong Master programs in Information Networks, Computer Science, and Cybersecurity. This is an optional backup with no scholarship attached, but Aalto has a tuition waiver for admitted students, making it financially viable.",
+          what: "Aalto University (Helsinki) offers strong Master programs in Information Networks, Computer Science, and Cybersecurity. This is an optional backup with no scholarship attached. Some admitted international students receive tuition waivers, but verify the current funding rules before budgeting.",
           steps: [
             "Identify your preferred Aalto program: MSc Information Networks (multi-disciplinary, strong industry links) or MSc Computer Science (theoretical, research-oriented).",
             "Research Aalto-specific elements: their unique 'learning by doing' culture, co-design studios, industry collaboration model. Mention these specifically.",
             "Structure similarly to CYBERSURE letter but tailored to Aalto: hook, background, why Aalto, career goal.",
             "Keep under 500 words — Aalto typically expects a concise statement of purpose.",
-            "Note: Aalto applications go to admissions.aalto.fi — NOT studyinfo.fi. Finnish vs. Aalto portals are separate."
+            "Note: Aalto typically uses its own portal at admissions.aalto.fi. Studyinfo.fi is the central application portal for most other Finnish universities.",
           ],
           where: [
             { name: "Aalto University admissions", url: "https://admissions.aalto.fi" },
@@ -632,12 +632,12 @@ const PHASES = [
         id: "p2_tampere_letter", priority: "normal", deadline: "2026-12-28",
         title: "[Optional] Write Tampere/Finland motivation letter",
         details: {
-          what: "Tampere University (and other Finnish universities) uses studyinfo.fi for master applications. Programs in Information Technology, Software Engineering, and Data Science are strong backups. One motivation letter covers the Finnish university system.",
+          what: "Many Finnish universities use studyinfo.fi for master applications. Programs in Information Technology, Software Engineering, and Data Science are good backup options. Confirm whether one motivation letter is accepted across your chosen Finnish applications.",
           steps: [
-            "Identify your target Finnish program (Tampere MSc in Software, Systems and Internet, or Jyvaskyla MSc in Information Systems).",
+            "Identify your target Finnish program and learn the specific focus areas or specialization tracks.",
             "Write a motivation letter tailored to the program's curriculum. Research faculty research groups if applying to a research-track program.",
-            "Keep it concise — most Finnish programs expect 300–500 words, not elaborate essays.",
-            "Note: JYU (Jyvaskyla) MSc Information Systems is an IT governance/management-oriented program that aligns well with your background."
+            "Keep it concise — many Finnish programs prefer concise statements rather than long essays.",
+            "Note: JYU (Jyvaskyla) MSc Information Systems often includes information systems management, governance, and data-driven decision-making themes."
           ],
           where: [
             { name: "studyinfo.fi Finnish universities portal", url: "https://studyinfo.fi/app" },
@@ -658,13 +658,13 @@ const PHASES = [
         id: "p2_tampere_submit", priority: "normal", deadline: "2027-01-07",
         title: "[Optional] Submit Tampere/Finnish app via studyinfo.fi",
         details: {
-          what: "Formal submission through studyinfo.fi for Tampere, JYU, or other Finnish university programs. Application window: December 14, 2026 – January 7, 2027, 15:00 Finnish time.",
+          what: "Formal submission through studyinfo.fi for Tampere, JYU, or other Finnish university programs. Application windows are usually mid-December to early January, but the exact dates vary by year.",
           steps: [
             "Log into studyinfo.fi with your existing account or create one.",
             "Search for and add your target Finnish master programs.",
             "Upload required documents per program (typically: transcript, degree, IELTS, motivation letter, CV).",
             "Pay the €100 application fee.",
-            "Submit before 15:00 Helsinki time (21:00 Vietnam time) on January 7.",
+            "Submit before the portal's published deadline, accounting for Helsinki time if you are applying from Vietnam.",
             "Save confirmation and check the applicant portal for document verification status in the weeks after submission."
           ],
           where: [
@@ -684,7 +684,7 @@ const PHASES = [
         id: "p2_sweden_letters", priority: "critical", deadline: "2027-01-10",
         title: "Write Swedish motivation letters (one per program, SDG narrative)",
         details: {
-          what: "Each Swedish university has its own portal where you upload a program-specific motivation letter. These are separate from universityadmissions.se (which only collects documents and fees). Swedish motivation letters must specifically address SDG alignment — this feeds directly into SISGP eligibility.",
+          what: "Each Swedish university has its own portal where you upload a program-specific motivation letter. These are separate from universityadmissions.se (which only collects documents and fees). Strong Swedish motivation letters should address SDG alignment if you are applying for SISGP, because that scholarship evaluates your development impact.",
           steps: [
             "For each of your 4 Swedish programs, write a distinct letter (500–800 words) tailored to that program's curriculum, faculty, and research focus.",
             "Include an explicit SDG section: identify the SDG most relevant to your work (SDG 9 — Industry, Innovation and Infrastructure; SDG 16 — Peace, Justice and Strong Institutions). Explain how your planned studies at that specific university connect to achieving progress on that goal.",
@@ -721,7 +721,7 @@ const PHASES = [
             "Upload supporting documents: scanned degree certificate, academic transcript (both with certified English translations), IELTS/TOEFL certificate, passport scan, and APS certificate if the program or portal specifically requests it.",
             "Pay the SEK 900 (~€80) application fee by credit/debit card.",
             "Submit before 23:59 Stockholm time on January 15 (05:59 Vietnam time on January 16).",
-            "Note: document upload on universityadmissions.se continues until February 2, 2027 — but the program ranking must be submitted by January 15.",
+            "Note: some document upload deadlines may extend after program ranking. Always confirm the current year's exact dates on universityadmissions.se.",
             "After submission, upload motivation letters to each individual university portal by their respective deadlines."
           ],
           where: [
@@ -751,12 +751,12 @@ const PHASES = [
         id: "p3_si_template", priority: "critical", deadline: "2027-02-05",
         title: "Download SI mandatory CV template and complete it",
         details: {
-          what: "SISGP requires applicants to use a specific CV template published by the Swedish Institute — not your own academic CV format. This template has fixed fields and a specific structure that SI evaluators use to score applicants. Submitting a non-template CV will result in disqualification.",
+          what: "SISGP requires applicants to use a specific CV template published by the Swedish Institute — not your own academic CV format. This template has fixed fields and a structure SI expects. Submitting a non-template CV risks rejection or disqualification.",
           steps: [
             "Go to si.se and navigate to the SISGP application instructions page. Download the current-year CV template (it is updated annually — do not reuse a template from a previous year).",
             "The template has fixed sections: Personal Information, Education, Professional Experience (with dates, employer, role, weekly hours), Leadership Experience, Languages, and a few more.",
             "Fill in Professional Experience with exact weekly contracted hours for each employer — this is how SI verifies your 3,000-hour eligibility. Maximum 3 employers.",
-            "Leadership section: be specific and concrete. Not 'participated in community events' but 'Chaired monthly security awareness sessions for 45 staff members at AIA, resulting in a 30% reduction in phishing clicks.'",
+            "Leadership section: be specific and concrete. Not 'participated in community events' but 'Chaired monthly security awareness sessions for a team, resulting in measurable improvement in security awareness metrics.'",
             "Do not modify the template format. Do not add your own sections. Submit it exactly as designed.",
             "Save as PDF before submitting — some systems require PDF format."
           ],
@@ -782,7 +782,7 @@ const PHASES = [
           what: "The SISGP motivation letter (approximately 400–600 words) is the most important piece of your scholarship application. It must directly address all 4 SI selection criteria: professional excellence, leadership, SDG alignment, and commitment to return and contribute to your home country.",
           steps: [
             "Open the SISGP selection criteria page (si.se) and read the rubric. Every paragraph of your letter should map to at least one criterion.",
-            "Professional excellence: specific achievement at Razer, previous employers. Use metrics. 'Led PCI-DSS audit for payment platform serving 8 million transactions monthly.'",
+            "Professional excellence: specific achievement at work or previous employers. Use metrics. 'Led a compliance audit for a payment platform handling millions of transactions monthly.'",
             "Leadership: a specific initiative you drove. Not a role you held — an outcome you created. Include people impacted.",
             "SDG alignment: name your SDG (suggest SDG 9), explain specifically how your planned program connects to it, and how you will use the knowledge at home. Be concrete: 'I will apply cybersecurity knowledge to strengthen Vietnam financial services infrastructure, supporting SDG 9.3 (access to financial services for SMEs).'",
             "Return commitment: Vietnam-specific. What role, which sector, what contribution? SI wants to fund leaders who will return and drive development — not those who intend to stay in Sweden.",
@@ -906,10 +906,10 @@ const PHASES = [
             "Leadership evidence PDF (p3_leadership_pack)",
             "Referee email addresses"
           ],
-          fees: "No application fee. SISGP award: full tuition waiver + SEK 12,000/month stipend + SEK 15,000 one-time travel grant + insurance.",
+          fees: "No application fee. The SISGP award typically includes tuition coverage plus a monthly stipend and a travel grant, though the exact terms depend on the current year.",
           faq: [
             { q: "What if I submit and then find an error?", a: "Contact the SI help desk immediately at scholarships@si.se. Some errors can be corrected before the deadline with SI support. Do not assume submitted applications are locked forever — but act immediately." },
-            { q: "When do SISGP results come out?", a: "Typically late April 2027. You receive an email from SI. Acceptance must be confirmed within a short window (usually 1–2 weeks). If admitted, you cannot also accept CYBERSURE." }
+            { q: "When do SISGP results come out?", a: "Typically late April 2027. You receive an email from SI. Acceptance must be confirmed within a short window (usually 1–2 weeks). Verify whether accepting SISGP would preclude another funded offer like CYBERSURE." }
           ]
         }
       }
@@ -940,7 +940,7 @@ const PHASES = [
           ],
           fees: "No fee at this stage.",
           faq: [
-            { q: "Can I hold both CYBERSURE and SISGP offers simultaneously?", a: "No. You must choose one scholarship. Accepting both is a violation of scholarship terms and may result in disqualification from both and a ban from future applications." }
+            { q: "Can I hold both CYBERSURE and SISGP offers simultaneously?", a: "Check the terms of each scholarship carefully. Some funded awards require a commitment that precludes accepting another scholarship at the same time.", }
           ]
         }
       },
@@ -948,7 +948,7 @@ const PHASES = [
         id: "p4_sweden_result", priority: "normal", deadline: "2027-03-31",
         title: "Review Sweden admission result (~late March)",
         details: {
-          what: "Swedish university admission results are released via universityadmissions.se in late March (usually March 29–31). This is admission-only — the SISGP scholarship result is separate and comes in late April. Being admitted is necessary but not sufficient for SISGP.",
+          what: "Swedish university admission results are released via universityadmissions.se in late March. This is admission-only — the SISGP scholarship result is separate and comes in late April. Being admitted is necessary but not sufficient for SISGP.",
           steps: [
             "Log into universityadmissions.se and check your admission status under 'My Application'.",
             "You will see: 'Conditionally admitted' (offer pending document verification) or 'Admitted'. Conditional offers become firm when university verifies your documents.",
@@ -1027,13 +1027,13 @@ const PHASES = [
         id: "p4_mannheim_apply", priority: "high", deadline: "2027-05-15",
         title: "[Backup] Apply to Mannheim MSc Business Informatics (~15 May)",
         details: {
-          what: "If your preferred scholarship-funded options (SISGP, CYBERSURE, Finnish waiver) have not materialized by May, apply to Mannheim MSc Business Informatics as a self-funded backup. Mannheim has a strong European reputation and the program is highly structured with industry connections.",
+          what: "If your preferred scholarship-funded options (SISGP, CYBERSURE, Finnish waiver) have not materialized by May, apply to Mannheim MSc Business Informatics as a self-funded backup. Mannheim is a strong academic option in Germany, and the program emphasizes business and information systems.",
           steps: [
             "Apply via Mannheim's own portal: bewerber.uni-mannheim.de (not a central portal).",
-            "Required documents: academic CV, motivation letter, transcript + certified translation, degree certificate + certified translation, IELTS certificate, APS certificate.",
-            "The APS certificate must be sent to Mannheim by registered international post — not as a scan. Allow 2 weeks for delivery. Send it in early April to meet the May 15 deadline.",
-            "Prepare a motivation letter specifically for Mannheim: emphasize the Business Informatics curriculum fit, your payment platform/gaming services background (fintech + gaming IS alignment), and career goals in Southeast Asia.",
-            "Mannheim admission decisions are typically released in June–July."
+            "Required documents: academic CV, motivation letter, transcript + certified translation, degree certificate + certified translation, IELTS certificate, APS certificate if required.",
+            "If APS is required, follow Mannheim's current instructions exactly. Some applicants must provide a sealed original APS via post, while others may be able to upload a certified scan. Verify the current process with Mannheim admissions.",
+            "Prepare a motivation letter specifically for Mannheim: emphasize the Business Informatics curriculum fit, your background in information systems and related domains, and your career goals.",
+            "Mannheim admission decisions are typically released in early summer."
           ],
           where: [
             { name: "Mannheim MSc Business Informatics", url: "https://www.bwl.uni-mannheim.de/en/master-programs/msc-in-business-informatics/" },
@@ -1044,9 +1044,9 @@ const PHASES = [
             "All standard academic documents",
             "Mannheim-specific motivation letter"
           ],
-          fees: "No application fee for Mannheim. Tuition if admitted: ~€1,500/semester (EU-standard fees for non-EU students vary — verify on program site). Living costs in Mannheim: ~€900–1,200/month.",
+          fees: "No application fee for Mannheim. Tuition for non-EU students is modest compared to many private programs, but verify the exact figures on the program site. Living costs in Mannheim are comparable to other German university cities.",
           faq: [
-            { q: "Why is Mannheim a backup rather than a primary choice?", a: "Mannheim is excellent academically, but no scholarship means self-funding €1,500/semester tuition + ~€1,000/month living costs for 2 years. This totals ~€27,000 over the program. SISGP or CYBERSURE scholarships make Sweden/Belgium/France effectively free. Mannheim is a strong option if you can self-fund." }
+            { q: "Why is Mannheim a backup rather than a primary choice?", a: "Mannheim is excellent academically, but without a scholarship you will need to self-fund both tuition and living costs. SISGP or CYBERSURE scholarships may offer a stronger financial outcome if awarded. Mannheim is still a strong option for self-funded study." }
           ]
         }
       },
@@ -1054,13 +1054,13 @@ const PHASES = [
         id: "p4_cologne_apply", priority: "high", deadline: "2027-06-15",
         title: "[Backup] Apply to Cologne MSc IS via uni-assist (~15 June)",
         details: {
-          what: "University of Cologne MSc Information Systems is another strong German backup, applied through uni-assist (the central German application agency for international students). The deadline is typically June 15, with uni-assist processing taking 4–8 weeks.",
+          what: "University of Cologne MSc Information Systems is another strong German backup, applied through uni-assist (the central German application service for international applicants). Deadlines are typically in early to mid-June, and uni-assist processing can take several weeks.",
           steps: [
             "Register at uni-assist.de and create an applicant profile.",
             "Select University of Cologne and the MSc Information Systems program.",
-            "Upload all required documents through uni-assist: transcript, degree certificate, certified translations, IELTS, APS certificate (sealed original to uni-assist postal address, not scanned).",
-            "Pay uni-assist fees: €75 for the first university, €30 for each additional university in the same round.",
-            "Submit to uni-assist by late April to give 4–8 weeks processing time before Cologne's June 15 deadline.",
+            "Upload all required documents through uni-assist: transcript, degree certificate, certified translations, IELTS, APS certificate if required.",
+            "Pay the uni-assist application fees and any additional per-university charges for the same round.",
+            "Submit to uni-assist as early as possible to allow several weeks for processing before the published Cologne deadline.",
             "Uni-assist forwards your processed dossier to Cologne admissions. You may need to create a separate Cologne applicant portal account for additional documents."
           ],
           where: [
@@ -1072,7 +1072,7 @@ const PHASES = [
             "All standard documents via uni-assist upload",
             "€75 + €30 payment for uni-assist fees"
           ],
-          fees: "uni-assist: €75 (first university) + €30 (each additional). Cologne tuition: similar to Mannheim (~€1,500/semester for non-EU). Living costs in Cologne: ~€1,000–1,300/month.",
+          fees: "uni-assist charges a base fee plus additional per-university fees in the same round. Cologne tuition is charged separately by the university, and living costs are comparable to other German university cities.",
           faq: [
             { q: "Can I apply to both Mannheim and Cologne through uni-assist?", a: "Mannheim uses its own portal (bewerber.uni-mannheim.de), not uni-assist. Cologne uses uni-assist. Apply to each through the correct channel. If applying to other German universities through uni-assist in the same round, the additional €30 fee per university applies." }
           ]
@@ -1087,7 +1087,7 @@ const PHASES = [
             "List all offers with their financial packages, program quality assessment, location preferences, and career alignment.",
             "Recommended priority order: (1) SISGP-funded Swedish program (full scholarship + stipend, best ROI), (2) CYBERSURE scholarship (Erasmus Mundus, multi-country experience, excellent networks), (3) Finnish program with tuition waiver (low cost, good quality), (4) Mannheim or Cologne self-funded (quality education, requires personal investment).",
             "Accept your chosen offer by the specified deadline. Decline all other offers promptly (this is courteous and allows waitlisted candidates to advance).",
-            "Begin visa application immediately after acceptance: Sweden (up to 6 months processing via Migrationsverket), Finland (~8–10 weeks via Migri), Germany (~4–12 weeks at German Embassy Hanoi).",
+            "Begin visa application immediately after acceptance. Processing times vary by country and can range from several weeks to a few months, so start early and follow the current embassy/immigration guidance.",
             "Research accommodation: student dormitory applications open immediately after admission in most cities.",
             "Apply for any required pre-enrollment documents (medical certificates, certificate of good conduct) that some countries require."
           ],
@@ -1102,10 +1102,10 @@ const PHASES = [
             "Financial proof (for visa: bank statements showing living expenses coverage)",
             "Health insurance documentation"
           ],
-          fees: "Visa fees: Sweden ~SEK 1,500, Finland ~€350–520, Germany ~€75–100. Travel: book early for best flight prices (Hanoi to Europe: typically €500–900 return).",
+          fees: "Visa fees vary by country and year. Check the current rates on the official immigration or embassy websites. Travel: book early for the best flight prices.",
           faq: [
             { q: "What if no strong offer materializes by June?", a: "This would be a rare but possible outcome. Regroup: reapply next cycle with a stronger application (improved IELTS, more leadership documentation, stronger letters). The application framework and documents you built this year are entirely reusable next year with updates." },
-            { q: "Do I need to give notice at Razer before enrolling?", a: "Standard notice in Vietnam is typically 30–45 days. Once you have an official acceptance and visa, give formal notice to Razer HR. Maintain professionalism — you may want their reference or Razer network connections in future." }
+            { q: "Do I need to give notice before enrolling?", a: "Standard notice in Vietnam is typically 30–45 days. Once you have an official acceptance and visa, give formal notice to your employer and maintain professionalism — you may want their reference or network connections in future." }
           ]
         }
       }
