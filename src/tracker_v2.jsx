@@ -3,7 +3,8 @@ import { Info, ListChecks, MapPin, FileText, Coins, HelpCircle, PenLine, Chevron
 
 const STORAGE_KEY = "masters-tracker-v2";
 const AUTH_KEY = "masters-tracker-v2-auth";
-const PASSCODE = "060804";
+const AUTH_DURATION_MS = 30 * 60 * 1000; // 30 minutes
+const PASSCODE_HASH = "c24988fef0f40d549658960190eae263136e01207f466b7070b625e7ea9b4ab7";
 const PASSCODE_HINT = "your birthday";
 
 const STORAGE_API = {
@@ -16,6 +17,34 @@ const STORAGE_API = {
     window.localStorage.setItem(key, value);
   }
 };
+
+const textEncoder = new TextEncoder();
+async function sha256(value) {
+  const hashBuffer = await crypto.subtle.digest("SHA-256", textEncoder.encode(value));
+  return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+function getSavedAuth() {
+  if (typeof window === "undefined") return false;
+  try {
+    const raw = window.localStorage.getItem(AUTH_KEY);
+    if (!raw) return false;
+    const saved = JSON.parse(raw);
+    return saved?.ts && Date.now() - saved.ts < AUTH_DURATION_MS;
+  } catch (e) {
+    return false;
+  }
+}
+
+function saveAuth() {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(AUTH_KEY, JSON.stringify({ ts: Date.now() }));
+}
+
+function clearAuth() {
+  if (typeof window === "undefined") return;
+  window.localStorage.removeItem(AUTH_KEY);
+}
 
 const COLORS = {
   coral:  { bg:"#FAECE7", border:"#F0C4B4", dot:"#D85A30" },
@@ -1290,7 +1319,7 @@ export default function MastersTracker() {
   const [saveStatus, setSaveStatus] = useState("");
   const [loaded, setLoaded]       = useState(false);
   const [confirmReset, setConfirmReset] = useState(false);
-  const [authenticated, setAuthenticated] = useState(() => typeof window !== "undefined" && window.localStorage.getItem(AUTH_KEY) === "true");
+  const [authenticated, setAuthenticated] = useState(getSavedAuth);
   const [passcode, setPasscode]   = useState("");
   const [authError, setAuthError] = useState("");
 
@@ -1372,15 +1401,27 @@ export default function MastersTracker() {
     return true;
   };
 
-  const handlePasscodeSubmit = (event) => {
+  const handlePasscodeSubmit = async (event) => {
     event.preventDefault();
-    if (passcode === PASSCODE) {
-      window.localStorage.setItem(AUTH_KEY, "true");
-      setAuthenticated(true);
-      setAuthError("");
-    } else {
-      setAuthError("Incorrect passcode. Hint: your birthday.");
+    try {
+      const typedHash = await sha256(passcode);
+      if (typedHash === PASSCODE_HASH) {
+        saveAuth();
+        setAuthenticated(true);
+        setAuthError("");
+      } else {
+        setAuthError("Incorrect passcode. Hint: your birthday.");
+      }
+    } catch (e) {
+      setAuthError("Unable to verify passcode right now. Please try again.");
     }
+  };
+
+  const lockTracker = () => {
+    clearAuth();
+    setAuthenticated(false);
+    setPasscode("");
+    setAuthError("");
   };
 
   if (!authenticated) return (
@@ -1533,16 +1574,21 @@ export default function MastersTracker() {
         {/* Footer */}
         <div style={{ marginTop:24, display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:12, color:"#9CA3AF" }}>
           <span>Progress is saved locally in this browser.</span>
-          {confirmReset ? (
-            <div style={{ display:"flex", gap:6 }}>
-              <button onClick={resetAll} style={{ padding:"4px 12px", background:"#EF4444", color:"#fff", border:"none", borderRadius:6, fontSize:12, cursor:"pointer" }}>Confirm Reset</button>
-              <button onClick={() => setConfirmReset(false)} style={{ padding:"4px 12px", background:"#F3F4F6", color:"#374151", border:"1px solid #D1D5DB", borderRadius:6, fontSize:12, cursor:"pointer" }}>Cancel</button>
-            </div>
-          ) : (
-            <button onClick={() => setConfirmReset(true)} style={{ padding:"4px 12px", background:"none", color:"#9CA3AF", border:"1px solid #E5E7EB", borderRadius:6, fontSize:12, cursor:"pointer" }}>
-              Reset progress
+          <div style={{ display:"flex", gap:8, alignItems:"center" }}>
+            <button onClick={lockTracker} style={{ padding:"4px 12px", background:"#F3F4F6", color:"#374151", border:"1px solid #D1D5DB", borderRadius:6, fontSize:12, cursor:"pointer" }}>
+              Lock tracker
             </button>
-          )}
+            {confirmReset ? (
+              <div style={{ display:"flex", gap:6 }}>
+                <button onClick={resetAll} style={{ padding:"4px 12px", background:"#EF4444", color:"#fff", border:"none", borderRadius:6, fontSize:12, cursor:"pointer" }}>Confirm Reset</button>
+                <button onClick={() => setConfirmReset(false)} style={{ padding:"4px 12px", background:"#F3F4F6", color:"#374151", border:"1px solid #D1D5DB", borderRadius:6, fontSize:12, cursor:"pointer" }}>Cancel</button>
+              </div>
+            ) : (
+              <button onClick={() => setConfirmReset(true)} style={{ padding:"4px 12px", background:"none", color:"#9CA3AF", border:"1px solid #E5E7EB", borderRadius:6, fontSize:12, cursor:"pointer" }}>
+                Reset progress
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
