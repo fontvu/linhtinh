@@ -10,8 +10,9 @@ This repository contains a React tracker app for your European master’s applic
 3. Build the site:
    - `npm run build`
 4. Enable GitHub Pages in the repository settings:
-   - Source: `docs/` folder on the `main` branch (or whichever branch you push).
-5. Wait a minute and open the site URL shown in GitHub Pages.
+   - Source: `docs/` folder on the `main` branch.
+5. The app is served from `/masters_tracker_v2/` on your Pages site: `https://<your-username>.github.io/<repo>/masters_tracker_v2/`.
+6. Wait a minute and open the site URL shown in GitHub Pages.
 
 ## Local development
 

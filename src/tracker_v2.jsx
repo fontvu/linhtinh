@@ -31,7 +31,7 @@ const PHASES = [
         id: "p0_aps", priority: "critical", deadline: "2026-06-30",
         title: "Start APS certificate application at DAAD Vietnam",
         details: {
-          what: "The APS (Akademische Prüfstelle) certificate is a mandatory academic credential verification issued by DAAD Vietnam. Swedish and German universities require it to confirm the authenticity and equivalence of your Vietnamese degree before admitting international applicants.",
+          what: "The APS (Akademische Prüfstelle) certificate is an academic credential verification issued by DAAD Vietnam. It is required by many German universities, and some scholarship or program-specific Swedish/Finnish applications may request it. Always confirm the exact requirement with each target university or portal.",
           steps: [
             "Download the current APS application form from aps.org.vn and read the requirements checklist carefully.",
             "Prepare 5 physical copies of every document: degree certificate, transcripts, and ID — all with certified Vietnamese-to-German or Vietnamese-to-English translations.",
@@ -54,7 +54,7 @@ const PHASES = [
           ],
           fees: "6,000,000 VND (~€220) paid at the German Embassy Hanoi. No additional mailing fees if submitting in person.",
           faq: [
-            { q: "Do all target programs require APS?", a: "Yes. Swedish universities require APS for Vietnamese applicants via universityadmissions.se. German universities (Mannheim, Cologne) require it directly. CYBERSURE (Erasmus Mundus) and Finnish universities may also require it — check each program portal." },
+            { q: "Do all target programs require APS?", a: "No. APS is commonly required by German universities and may be requested by some Swedish scholarship or program-specific applications, but it is not universally required on universityadmissions.se. Always verify each target program's current document requirements before applying." },
             { q: "How long is the APS certificate valid?", a: "The APS certificate does not expire, but some universities may ask for one issued within a recent period. Getting it done now covers all Fall 2027 deadlines comfortably." },
             { q: "What if the interview is full for the next cycle?", a: "Contact DAAD Vietnam directly at aps.org.vn to join a waiting list. Submitting documents early often secures a spot even if the formal slot is later." }
           ]
@@ -718,7 +718,7 @@ const PHASES = [
           steps: [
             "Log into universityadmissions.se with your account.",
             "Confirm your 4 ranked programs are correctly listed.",
-            "Upload supporting documents: scanned degree certificate, academic transcript (both with certified English translations), IELTS/TOEFL certificate, passport scan, APS certificate (for Vietnamese applicants).",
+            "Upload supporting documents: scanned degree certificate, academic transcript (both with certified English translations), IELTS/TOEFL certificate, passport scan, and APS certificate if the program or portal specifically requests it.",
             "Pay the SEK 900 (~€80) application fee by credit/debit card.",
             "Submit before 23:59 Stockholm time on January 15 (05:59 Vietnam time on January 16).",
             "Note: document upload on universityadmissions.se continues until February 2, 2027 — but the program ranking must be submitted by January 15.",

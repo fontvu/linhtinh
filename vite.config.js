@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: './',
   build: {
-    outDir: 'docs'
+    outDir: 'docs/masters_tracker_v2'
   }
 });
