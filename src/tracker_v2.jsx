@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Info, ListChecks, MapPin, FileText, Coins, HelpCircle, PenLine, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 
 const STORAGE_KEY = "masters-tracker-v2";
+const AUTH_KEY = "masters-tracker-v2-auth";
+const PASSCODE = "060804";
+const PASSCODE_HINT = "your birthday";
 
 const STORAGE_API = {
   async get(key) {
@@ -64,7 +67,7 @@ const PHASES = [
         id: "p0_ielts_book", priority: "critical", deadline: "2026-07-15",
         title: "Book IELTS Academic test date",
         details: {
-          what: "IELTS Academic is the required English proficiency test for all target programs. You need a minimum overall band of 6.5 (some programs require 7.0). Booking early ensures you can retake if needed before the December–January application deadlines.",
+          what: "IELTS Academic is the required English proficiency test for all target programs. You need a minimum overall band of 6.5 (some programs require 7.0). Booking early ensures you can retake if needed before the December–January application deadlines. Results typically arrive 13 days after the test for paper-based IELTS and 3–5 days for computer-delivered testing.",
           steps: [
             "Decide between IDP Vietnam (idpielts.com.vn) or British Council Vietnam (britishcouncil.vn) — both are equally accepted and priced the same.",
             "Create or log into your account on the chosen provider's website.",
@@ -535,7 +538,7 @@ const PHASES = [
             "CYBERSURE program curriculum (download from cybersure-master.eu)",
             "Notes on specific faculty research interests at each partner university"
           ],
-          fees: "No application fee for CYBERSURE (Erasmus Mundus programs are free to apply to).",
+          fees: "No application fee for CYBERSURE. Allow budget for document translation, courier services, and visa application support if needed.",
           faq: [
             { q: "What does the CYBERSURE scholarship cover?", a: "Erasmus Mundus scholarships cover: full tuition at all partner universities, a monthly living allowance of approximately €1,400, travel and installation grants. Highly competitive — apply with a strong profile." },
             { q: "When are CYBERSURE results announced?", a: "Typically mid-March 2027. If admitted with scholarship, you can hold the offer while waiting for SISGP results (late April). However, you cannot accept both." }
@@ -648,7 +651,7 @@ const PHASES = [
             "CV",
             "Transcript and degree certificate"
           ],
-          fees: "€100 covers all Finnish universities applied to through studyinfo.fi in one application round.",
+          fees: "€100 covers all Finnish universities applied to through studyinfo.fi in one application round. Allow extra budget for certified translations, document shipping, and visa support materials.",
           faq: [
             { q: "How does studyinfo.fi work vs. Aalto?", a: "studyinfo.fi is the central portal for all Finnish universities except Aalto (which has its own system). Pay once (€100) and apply to multiple Finnish programs in one round. Aalto is separate and has its own €100 fee." }
           ]
@@ -1287,6 +1290,9 @@ export default function MastersTracker() {
   const [saveStatus, setSaveStatus] = useState("");
   const [loaded, setLoaded]       = useState(false);
   const [confirmReset, setConfirmReset] = useState(false);
+  const [authenticated, setAuthenticated] = useState(() => typeof window !== "undefined" && window.localStorage.getItem(AUTH_KEY) === "true");
+  const [passcode, setPasscode]   = useState("");
+  const [authError, setAuthError] = useState("");
 
   // Load from storage
   useEffect(() => {
@@ -1365,6 +1371,40 @@ export default function MastersTracker() {
     if (filter === "critical")  return it.priority === "critical";
     return true;
   };
+
+  const handlePasscodeSubmit = (event) => {
+    event.preventDefault();
+    if (passcode === PASSCODE) {
+      window.localStorage.setItem(AUTH_KEY, "true");
+      setAuthenticated(true);
+      setAuthError("");
+    } else {
+      setAuthError("Incorrect passcode. Hint: your birthday.");
+    }
+  };
+
+  if (!authenticated) return (
+    <div style={{ minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", background:"#F8FAFC", padding:20 }}>
+      <div style={{ width:"100%", maxWidth:420, background:"#fff", borderRadius:18, boxShadow:"0 30px 80px rgba(15,23,42,0.12)", padding:28 }}>
+        <h2 style={{ margin:0, fontSize:22, color:"#111827" }}>Tracker locked</h2>
+        <p style={{ margin:"10px 0 20px", color:"#4B5563", fontSize:14 }}>Enter the 6-digit passcode to open the tracker.</p>
+        <form onSubmit={handlePasscodeSubmit}>
+          <label style={{ display:"block", marginBottom:8, fontSize:12, fontWeight:700, color:"#374151" }}>Passcode</label>
+          <input
+            type="password"
+            maxLength={6}
+            value={passcode}
+            onChange={(e) => setPasscode(e.target.value)}
+            style={{ width:"100%", padding:"12px 14px", borderRadius:10, border:"1px solid #D1D5DB", fontSize:14, marginBottom:12 }}
+            placeholder="Enter 6 digits"
+          />
+          <button type="submit" style={{ width:"100%", padding:"12px 14px", borderRadius:10, border:"none", background:"#2563EB", color:"#fff", fontWeight:700, cursor:"pointer" }}>Unlock</button>
+        </form>
+        <p style={{ margin:"14px 0 0", fontSize:12, color:"#6B7280" }}>Hint: {PASSCODE_HINT}</p>
+        {authError && <p style={{ margin:"10px 0 0", color:"#B91C1C", fontSize:13 }}>{authError}</p>}
+      </div>
+    </div>
+  );
 
   if (!loaded) return <div style={{ display:"flex", justifyContent:"center", alignItems:"center", height:"100vh", color:"#6B7280" }}>Loading tracker...</div>;
 
@@ -1492,7 +1532,7 @@ export default function MastersTracker() {
 
         {/* Footer */}
         <div style={{ marginTop:24, display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:12, color:"#9CA3AF" }}>
-          <span>Data saved locally in your browser via Claude storage.</span>
+          <span>Progress is saved locally in this browser.</span>
           {confirmReset ? (
             <div style={{ display:"flex", gap:6 }}>
               <button onClick={resetAll} style={{ padding:"4px 12px", background:"#EF4444", color:"#fff", border:"none", borderRadius:6, fontSize:12, cursor:"pointer" }}>Confirm Reset</button>
