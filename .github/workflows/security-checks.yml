@@ -11,6 +11,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      VITE_PASSCODE_HASH: ${{ secrets.VITE_PASSCODE_HASH }}
+      VITE_PASSCODE_HINT: ${{ secrets.VITE_PASSCODE_HINT }}
     steps:
       - uses: actions/checkout@v4
 
@@ -23,11 +26,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Sanity check passcode
+        env:
+          VITE_PASSCODE_HASH: ${{ secrets.VITE_PASSCODE_HASH }}
+        run: |
+          node -e "const crypto=require('crypto'); const h=crypto.createHash('sha256').update('060804').digest('hex'); if(h!==process.env.VITE_PASSCODE_HASH){console.error('PASSCODE MISMATCH'); process.exit(2);} console.log('PASSCODE OK')"
+
       - name: Run tests
         run: npm run test:run
 
   audit:
     runs-on: ubuntu-latest
+    env:
+      VITE_PASSCODE_HASH: ${{ secrets.VITE_PASSCODE_HASH }}
     steps:
       - uses: actions/checkout@v4
 
