@@ -1,6 +1,7 @@
 # Masters Tracker
 
 This repository contains a React tracker app for your European master’s application plan.
+
 [![pages-build-deployment](https://github.com/fontvu/linhtinh/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/fontvu/linhtinh/actions/workflows/pages/pages-build-deployment)
 ## Security
 
