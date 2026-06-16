@@ -4,8 +4,10 @@ import { Info, ListChecks, MapPin, FileText, Coins, HelpCircle, PenLine, Chevron
 const STORAGE_KEY = "masters-tracker-v2";
 const AUTH_KEY = "masters-tracker-v2-auth";
 const AUTH_DURATION_MS = 30 * 60 * 1000; // 30 minutes
-const PASSCODE_HASH = "c24988fef0f40d549658960190eae263136e01207f466b7070b625e7ea9b4ab7";
-const PASSCODE_HINT = "your birthday";
+// PASSCODE_HASH must be provided at build time via Vite environment variables (VITE_PASSCODE_HASH).
+// Do NOT commit secrets to the repository. For local development, set VITE_PASSCODE_HASH in a local .env file (not checked in).
+const PASSCODE_HASH = import.meta.env.VITE_PASSCODE_HASH || null;
+const PASSCODE_HINT = import.meta.env.VITE_PASSCODE_HINT || "your birthday";
 
 const STORAGE_API = {
   async get(key) {
@@ -19,12 +21,12 @@ const STORAGE_API = {
 };
 
 const textEncoder = new TextEncoder();
-async function sha256(value) {
+export async function sha256(value) {
   const hashBuffer = await crypto.subtle.digest("SHA-256", textEncoder.encode(value));
   return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-function getSavedAuth() {
+export function getSavedAuth() {
   if (typeof window === "undefined") return false;
   try {
     const raw = window.localStorage.getItem(AUTH_KEY);
@@ -36,12 +38,12 @@ function getSavedAuth() {
   }
 }
 
-function saveAuth() {
+export function saveAuth() {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(AUTH_KEY, JSON.stringify({ ts: Date.now() }));
 }
 
-function clearAuth() {
+export function clearAuth() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(AUTH_KEY);
 }

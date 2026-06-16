@@ -2,6 +2,11 @@
 
 This repository contains a React tracker app for your European master’s application plan.
 
+## Security
+
+- See [SECURITY.md](SECURITY.md) for security policy and vulnerability reporting.
+- See [docs/SECURE_DATA_HANDLING.md](docs/SECURE_DATA_HANDLING.md) for guidelines on handling sensitive documents.
+
 ## Publish to GitHub Pages
 
 1. Create a GitHub repository and push this folder.
